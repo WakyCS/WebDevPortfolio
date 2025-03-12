@@ -1,5 +1,6 @@
 const mediaButtons = document.querySelectorAll('.media-button');
 const everything = document.querySelectorAll( 'body *' );
+const aboutMeButton = document.querySelector('.aboutMeScrollButton');
 
 mediaButtons.forEach(mediaButton => {
     var on = false;
@@ -17,6 +18,7 @@ mediaButtons.forEach(mediaButton => {
                         element.classList.add('lightmode');
                     });
                     document.body.style.background = "linear-gradient(45deg, rgba(200, 200, 200, 1), rgba(180, 180, 180, 1))";
+                    document.body.style.backgroundSize = "100vw 200vh";
                     on = true;
                 } else {
                     mediaButton.src = 'Images/DarkMode.png';
@@ -24,12 +26,17 @@ mediaButtons.forEach(mediaButton => {
                         element.classList.remove('lightmode');
                         element.classList.add('darkmode');
                     });
-                    document.body.style.background = "linear-gradient(45deg, rgba(60, 60, 60, 1), rgba(50, 50, 50, 1))";
+                    document.body.style.background = "linear-gradient(45deg, rgba(30, 30, 50, 1), rgba(50, 50, 60, 1))";
+                    document.body.style.backgroundSize = "100vw 200vh";
                     on = false
                 }
             }
         }
     });
+});
+
+aboutMeButton.addEventListener('click', () => {
+  window.scrollTo({left:0, top:600, behavior:"smooth"});
 });
 
 particlesJS('particles', {
