@@ -1,11 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fade-in-bottom {
+    0% {
+        opacity: 0;
+        transform: translateY(200%);
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fade-in-right {
+    0% {
+        opacity: 0;
+        transform: translateX(75%);
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 .darkmode {
     font-family: Poppins;
     color: rgba(220, 220, 220, 0.9);
+    text-align: center;
 }
 .lightmode {
     font-family: Poppins;
     color: rgba(10, 10, 10, 1);
+    text-align: center;
 }
 body {
     padding: 0.5%;
@@ -62,15 +101,24 @@ body {
 .media-button:active {
     transform: scale(0.9);
 }
+.content-outlined-container {
+    border: 2px solid;
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 15px;
+}
+.content-subheader {
+    font-weight: bold;
+    font-size: 125%;
+}
 .content-header {
     font-size: 200%;
-    text-align: center;
     position: relative;
     z-index: 1;
 }
 .content-paragraph {
-    font-size: 120%;
-    text-align: center;
+    font-size: 110%;
     position: relative;
     z-index: 1;
     top: -2vh;
@@ -122,4 +170,22 @@ body {
     position: absolute;
     z-index: -99999;
     height: 200vh;
+}
+.tech-stack {
+    display: flex;
+    justify-content: center;
+}
+.tech-stack-language-icon {
+    height: 15vh;
+    padding-left: 3%;
+    padding-right: 3%;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+.tech-stack-language-icon:hover {
+    transform: scale(1.15);
+}
+.content2 {
+    animation: fade-in-bottom ease-out;
+    animation-timeline: scroll(root);
 }

@@ -1,6 +1,13 @@
 const mediaButtons = document.querySelectorAll('.media-button');
 const everything = document.querySelectorAll( 'body *' );
 const aboutMeButton = document.querySelector('.aboutMeScrollButton');
+const languageIcons = document.querySelectorAll('.tech-stack-language-icon');
+
+languageIcons.forEach(icon => {
+  icon.addEventListener('click', () => {
+    window.location.href = icon.id;
+  });
+});
 
 mediaButtons.forEach(mediaButton => {
     var on = false;
@@ -29,14 +36,14 @@ mediaButtons.forEach(mediaButton => {
                     document.body.style.background = "linear-gradient(45deg, rgba(30, 30, 50, 1), rgba(50, 50, 60, 1))";
                     document.body.style.backgroundSize = "100vw 200vh";
                     on = false
-                }
-            }
-        }
+                };
+            };
+        };
     });
 });
 
 aboutMeButton.addEventListener('click', () => {
-  window.scrollTo({left:0, top:600, behavior:"smooth"});
+  window.scrollTo({left:0, top:570, behavior:"smooth"});
 });
 
 particlesJS('particles', {
