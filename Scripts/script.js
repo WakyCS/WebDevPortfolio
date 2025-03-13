@@ -1,11 +1,34 @@
 const mediaButtons = document.querySelectorAll('.media-button');
 const everything = document.querySelectorAll( 'body *' );
 const aboutMeButton = document.querySelector('.aboutMeScrollButton');
+const pricingButton = document.querySelector('.pricingScrollButton');
 const languageIcons = document.querySelectorAll('.tech-stack-language-icon');
+const accordionButtons = document.querySelectorAll('.accordion-button');
+const accordionContents = document.querySelectorAll('.accordion-content');
 
 languageIcons.forEach(icon => {
   icon.addEventListener('click', () => {
     window.location.href = icon.id;
+  });
+});
+
+accordionButtons.forEach(button => {
+  on = false
+  button.addEventListener('click', () => {
+    if (!on) {
+      on=true;
+    accordionContents.forEach(content => {
+      content.classList.remove('active');
+    });
+    if (content.id == button.id+"content") {
+      content.classList.add('active');
+    }
+  } else {
+    on=false;
+    accordionContents.forEach(content => {
+      content.classList.remove('active');
+    });
+  }
   });
 });
 
@@ -33,8 +56,8 @@ mediaButtons.forEach(mediaButton => {
                         element.classList.remove('lightmode');
                         element.classList.add('darkmode');
                     });
-                    document.body.style.background = "linear-gradient(45deg, rgba(30, 30, 50, 1), rgba(50, 50, 60, 1))";
-                    document.body.style.backgroundSize = "100vw 200vh";
+                    document.body.style.background = "linear-gradient(45deg, rgba(30, 30, 50, 1), rgba(50, 50, 60, 1), rgba(20, 20, 20, 1))";
+                    document.body.style.backgroundSize = "100vw 350vh";
                     on = false
                 };
             };
@@ -43,7 +66,10 @@ mediaButtons.forEach(mediaButton => {
 });
 
 aboutMeButton.addEventListener('click', () => {
-  window.scrollTo({left:0, top:570, behavior:"smooth"});
+  window.scrollTo({left:0, top:508, behavior:"smooth"});
+});
+pricingButton.addEventListener('click', () => {
+  window.scrollTo({left:0, top:1170, behavior:"smooth"});
 });
 
 particlesJS('particles', {

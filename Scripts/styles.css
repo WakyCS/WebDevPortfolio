@@ -4,7 +4,7 @@
         opacity: 0;
     }
     50% {
-        opacity: 0.4;
+        opacity: 1;
     }
     100% {
         opacity: 1;
@@ -36,6 +36,9 @@
         transform: translateX(0);
     }
 }
+.accordion-content {
+    display: none;
+}
 .darkmode {
     font-family: Poppins;
     color: rgba(220, 220, 220, 0.9);
@@ -46,11 +49,14 @@
     color: rgba(10, 10, 10, 1);
     text-align: center;
 }
+.active {
+    display:block;
+}
 body {
     padding: 0.5%;
     z-index: auto;
-    background: linear-gradient(45deg, rgba(30, 30, 50, 1), rgba(50, 50, 60, 1));
-    background-size: 100vw 200vh;
+    background: linear-gradient(45deg, rgba(30, 30, 50, 1), rgba(50, 50, 60, 1), rgba(20, 20, 20, 1));
+    background-size: 100vw 350vh;
 }
 .darkmode[class*="top-bar"] {
     z-index: 10;
@@ -73,7 +79,7 @@ body {
 }
 .darkmode[class*="media-button"]:hover {
     background: rgba(111, 111, 111, 1);
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(-10deg);
 }
 .lightmode[class*="top-bar"] {
     z-index: 10;
@@ -96,14 +102,13 @@ body {
 }
 .lightmode[class*="media-button"]:hover {
     background: rgba(250, 250, 250, 1);
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(10deg);
 }
 .media-button:active {
     transform: scale(0.9);
 }
 .content-outlined-container {
     border: 2px solid;
-    padding-top: 1%;
     padding-left: 1%;
     padding-right: 1%;
     border-radius: 15px;
@@ -134,7 +139,8 @@ body {
     background: transparent;
     transition: all 0.3s;
     text-align: center;
-    margin-top: 10vh;
+    position: relative;
+    top: 5vh;
 }
 .darkmode[class*="aboutMeScrollButton"]:hover {
     color: rgba(100, 255, 100, 1);
@@ -146,21 +152,63 @@ body {
     font-weight: bold;
     border-radius: 5px;
     padding: 2% 3%;
-    color: rgba(255, 140, 140, 0.8);
+    color: rgba(140, 90, 90, 0.8);
     cursor: pointer;
     background: transparent;
     transition: all 0.3s;
     text-align: center;
-    margin-top: 10vh;
+    position: relative;
+    top: 5vh;
+}
+.darkmode[class*="pricingScrollButton"] {
+    border: 3px solid;
+    font-size: 110%;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2% 3%;
+    color: rgba(255, 180, 180, 0.8);
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.3s;
+    text-align: center;
+    position: relative;
+    top: 5vh;
+}
+.lightmode[class*="pricingScrollButton"] {
+    border: 3px solid;
+    font-size: 110%;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2% 3%;
+    color: rgba(140, 15, 140, 0.8);
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.3s;
+    text-align: center;
+    position: relative;
+    top: 5vh;
+}
+.darkmode[class*="pricingScrollButton"]:hover {
+    color: rgba(255, 100, 100, 1);
+    transform: scale(1.05);
 }
 .lightmode[class*="aboutMeScrollButton"]:hover {
-    color: rgba(255, 100, 100, 1);
+    color: rgba(120, 70, 70, 1);
+    transform: scale(1.05);
+}
+.lightmode[class*="pricingScrollButton"]:hover {
+    color: rgba(110, 10, 110, 1);
     transform: scale(1.05);
 }
 .button-container {
     display: flex;
     justify-content: center;
     margin-top: 10vh;
+}
+.button-container2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
 }
 #particles {
     top: 0;
@@ -169,14 +217,14 @@ body {
     left: 0;
     position: absolute;
     z-index: -99999;
-    height: 200vh;
+    height: 270vh;
 }
 .tech-stack {
     display: flex;
     justify-content: center;
 }
 .tech-stack-language-icon {
-    height: 15vh;
+    height: 10vh;
     padding-left: 3%;
     padding-right: 3%;
     transition: all 0.2s;
@@ -186,6 +234,32 @@ body {
     transform: scale(1.15);
 }
 .content2 {
-    animation: fade-in-bottom ease-out;
+    animation: fade-in ease;
     animation-timeline: scroll(root);
+}
+.accordion-container {
+    border-radius: 15px;
+    border: none;
+    width: 65vw;
+    position: relative;
+    left: 14vw;
+}
+.darkmode[class*="accordion-button"] {
+    width: 100%;
+    background: linear-gradient(50deg, rgba(80, 80, 80, 1), rgba(90, 90, 90, 1));
+    background-size: 150% 150%;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    height: 7vh;
+    transition: all .2s;
+    cursor: pointer;
+}
+.lightmode[class*="accordion-button"] {
+    width: 100%;
+    background: linear-gradient(50deg, rgba(160, 160, 160, 1), rgba(170, 170, 170, 1));
+    border: 3px solid transparent;
+    border-radius: 5px;
+    height: 7vh;
+    transition: all .2s;
+    cursor: pointer;
 }
